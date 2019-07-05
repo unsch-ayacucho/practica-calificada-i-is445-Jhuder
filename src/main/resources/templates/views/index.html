@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<div align='center'>
+	<meta charset=UTF-8>
+	<title>Carga Docente | Principal</title>
+</div>
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/dataTables.bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/responsive.bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css"
+	th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/tablesStyle.css}" />
+</head>
+<body>
+	<div class="logo" align='center'>
+		<a href="index.html"> <img src="/img/logo.png" alt="Logo" />
+		</a>
+
+		<h1>Carga Docente</h1>
+	</div>
+
+	<div id="main-container">
+
+		<table>
+			<thead>
+				<tr>
+					<th>Nombre Docente</th>
+					<th>Semestre Academico</th>
+					<th>N° Horas Semanales</th>
+					
+				</tr>
+			</thead>
+			<tbody >
+				
+				<tr th:each="docente : ${listDocente}">
+					<td th:text="${docente.idDocente}"></td>
+					<td th:text="${docente.nombreDocente}"></td>
+					<td th:text="${docente.tipoDocente}"></td>
+				</tr>
+				
+				<tr>
+					<td>Fredy Barrientos</td>
+					<td>2019-I</td>
+					<td>16</td>
+				</tr>
+				<tr>
+					<td>Damaris Solier</td>
+					<td>2019-I</td>
+					<td>8</td>
+				</tr>
+			
+			</tbody>
+			
+		</table>
+	</div>
+</body>
+</html>
