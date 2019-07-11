@@ -1,5 +1,5 @@
 package pe.edu.unsch.entities;
-// Generated 28/06/2019 07:38:29 PM by Hibernate Tools 5.2.10.Final
+// Generated 01/07/2019 12:54:26 AM by Hibernate Tools 5.2.10.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,28 +19,28 @@ public class Docente implements java.io.Serializable {
 
 	private int idDocente;
 	private String nombreDocente;
-	private String tipoDocente;
+	private String apellidoDocente;
 	private Set<Semestre> semestres = new HashSet<Semestre>(0);
 
 	public Docente() {
 	}
 
-	public Docente(int idDocente, String nombreDocente, String tipoDocente) {
+	public Docente(int idDocente, String nombreDocente, String apellidoDocente) {
 		this.idDocente = idDocente;
 		this.nombreDocente = nombreDocente;
-		this.tipoDocente = tipoDocente;
+		this.apellidoDocente = apellidoDocente;
 	}
 
-	public Docente(int idDocente, String nombreDocente, String tipoDocente, Set<Semestre> semestres) {
+	public Docente(int idDocente, String nombreDocente, String apellidoDocente, Set<Semestre> semestres) {
 		this.idDocente = idDocente;
 		this.nombreDocente = nombreDocente;
-		this.tipoDocente = tipoDocente;
+		this.apellidoDocente = apellidoDocente;
 		this.semestres = semestres;
 	}
 
 	@Id
 
-	@Column(name = "idDocente", unique = true, nullable = false)
+	@Column(name = "id_docente", unique = true, nullable = false)
 	public int getIdDocente() {
 		return this.idDocente;
 	}
@@ -49,7 +49,7 @@ public class Docente implements java.io.Serializable {
 		this.idDocente = idDocente;
 	}
 
-	@Column(name = "nombreDocente", nullable = false, length = 45)
+	@Column(name = "nombre_docente", nullable = false, length = 50)
 	public String getNombreDocente() {
 		return this.nombreDocente;
 	}
@@ -58,13 +58,13 @@ public class Docente implements java.io.Serializable {
 		this.nombreDocente = nombreDocente;
 	}
 
-	@Column(name = "tipoDocente", nullable = false, length = 45)
-	public String getTipoDocente() {
-		return this.tipoDocente;
+	@Column(name = "apellido_docente", nullable = false, length = 50)
+	public String getApellidoDocente() {
+		return this.apellidoDocente;
 	}
 
-	public void setTipoDocente(String tipoDocente) {
-		this.tipoDocente = tipoDocente;
+	public void setApellidoDocente(String apellidoDocente) {
+		this.apellidoDocente = apellidoDocente;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "docente")

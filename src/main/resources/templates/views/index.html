@@ -6,8 +6,7 @@
 	<title>Carga Docente | Principal</title>
 </div>
 
-<link rel="stylesheet" type="text/css"
-	th:href="@{/css/dataTables.bootstrap.min.css}" />
+
 <link rel="stylesheet" type="text/css"
 	th:href="@{/css/responsive.bootstrap.min.css}" />
 <link rel="stylesheet" type="text/css"
@@ -27,31 +26,23 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Nombre Docente</th>
-					<th>Semestre Academico</th>
-					<th>N° Horas Semanales</th>
-					
+					<th scope="col">Nombre Docente</th>
+					<th scope="col">Apellidos Docente</th>
+					<th scope="col">Semestre académico</th>
+					<th scope="col">N° de horas semanales</th>
 				</tr>
 			</thead>
 			<tbody >
-				
-				<tr th:each="docente : ${listDocente}">
-					<td th:text="${docente.idDocente}"></td>
-					<td th:text="${docente.nombreDocente}"></td>
-					<td th:text="${docente.tipoDocente}"></td>
+
+				<tr th:each="semestre: ${semestres}">
+					<td
+						th:text="${semestre.docente.nombreDocente}"></td>
+						<td
+						th:text="${semestre.docente.apellidoDocente}"></td>
+					<td th:text="${semestre.semestreAcademico}"></td>
+					<td th:text="${semestre.cargaAcademica}"></td>
 				</tr>
-				
-				<tr>
-					<td>Fredy Barrientos</td>
-					<td>2019-I</td>
-					<td>16</td>
-				</tr>
-				<tr>
-					<td>Damaris Solier</td>
-					<td>2019-I</td>
-					<td>8</td>
-				</tr>
-			
+
 			</tbody>
 			
 		</table>

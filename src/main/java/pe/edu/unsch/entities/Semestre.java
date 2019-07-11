@@ -1,12 +1,10 @@
 package pe.edu.unsch.entities;
-// Generated 28/06/2019 07:38:29 PM by Hibernate Tools 5.2.10.Final
+// Generated 01/07/2019 12:54:26 AM by Hibernate Tools 5.2.10.Final
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -18,36 +16,34 @@ import javax.persistence.Table;
 @Table(name = "semestre", catalog = "cargabd")
 public class Semestre implements java.io.Serializable {
 
-	private SemestreId id;
+	private int idSemestre;
 	private Docente docente;
-	private String nombreSemestre;
-	private String horasSemanales;
+	private String semestreAcademico;
+	private int cargaAcademica;
 
 	public Semestre() {
 	}
 
-	public Semestre(SemestreId id, Docente docente, String nombreSemestre, String horasSemanales) {
-		this.id = id;
+	public Semestre(int idSemestre, Docente docente, String semestreAcademico, int cargaAcademica) {
+		this.idSemestre = idSemestre;
 		this.docente = docente;
-		this.nombreSemestre = nombreSemestre;
-		this.horasSemanales = horasSemanales;
+		this.semestreAcademico = semestreAcademico;
+		this.cargaAcademica = cargaAcademica;
 	}
 
-	@EmbeddedId
+	@Id
 
-	@AttributeOverrides({
-			@AttributeOverride(name = "idSemestre", column = @Column(name = "idSemestre", nullable = false)),
-			@AttributeOverride(name = "docenteIdDocente", column = @Column(name = "Docente_idDocente", nullable = false)) })
-	public SemestreId getId() {
-		return this.id;
+	@Column(name = "id_semestre", unique = true, nullable = false)
+	public int getIdSemestre() {
+		return this.idSemestre;
 	}
 
-	public void setId(SemestreId id) {
-		this.id = id;
+	public void setIdSemestre(int idSemestre) {
+		this.idSemestre = idSemestre;
 	}
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "Docente_idDocente", nullable = false, insertable = false, updatable = false)
+	@JoinColumn(name = "docente_id_docente", nullable = false)
 	public Docente getDocente() {
 		return this.docente;
 	}
@@ -56,22 +52,22 @@ public class Semestre implements java.io.Serializable {
 		this.docente = docente;
 	}
 
-	@Column(name = "NombreSemestre", nullable = false, length = 45)
-	public String getNombreSemestre() {
-		return this.nombreSemestre;
+	@Column(name = "semestre_academico", nullable = false, length = 50)
+	public String getSemestreAcademico() {
+		return this.semestreAcademico;
 	}
 
-	public void setNombreSemestre(String nombreSemestre) {
-		this.nombreSemestre = nombreSemestre;
+	public void setSemestreAcademico(String semestreAcademico) {
+		this.semestreAcademico = semestreAcademico;
 	}
 
-	@Column(name = "HorasSemanales", nullable = false, length = 45)
-	public String getHorasSemanales() {
-		return this.horasSemanales;
+	@Column(name = "carga_academica", nullable = false)
+	public int getCargaAcademica() {
+		return this.cargaAcademica;
 	}
 
-	public void setHorasSemanales(String horasSemanales) {
-		this.horasSemanales = horasSemanales;
+	public void setCargaAcademica(int cargaAcademica) {
+		this.cargaAcademica = cargaAcademica;
 	}
 
 }

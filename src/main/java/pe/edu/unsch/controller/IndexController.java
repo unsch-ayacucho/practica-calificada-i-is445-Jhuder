@@ -1,30 +1,22 @@
 package pe.edu.unsch.controller;
 
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 
-
-import pe.edu.unsch.service.DocenteService;
+import pe.edu.unsch.service.SemestreService;
 
 @Controller
-
 public class IndexController {
 	
-	
-	//private DocenteService docenteService;
+	@Autowired
+	private SemestreService semestreService;
 	
 	@GetMapping({"/","/index"," "})
-	public String index( ) {
-			//HttpSession session
-			//session.setAttribute("nombreDocentes", docenteService.listDocente());    
-			
-			return "views/index.html";
+	public String index(Model model) {
+		model.addAttribute("semestres", semestreService.listaDocente());
+		return "views/index.html";
 	}
 }
 
